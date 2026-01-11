@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline | Benson Home Solutions</title>
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; text-align: center; padding: 50px; background-color: #f9fafb; color: #111827; }
+        .container { max-width: 600px; margin: 0 auto; background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+        h1 { color: #5A1A1A; margin-bottom: 16px; }
+        p { color: #4b5563; margin-bottom: 24px; line-height: 1.5; }
+        button { background-color: #5A1A1A; color: white; border: none; padding: 12px 24px; border-radius: 6px; font-weight: 600; cursor: pointer; transition: background-color 0.2s; }
+        button:hover { background-color: #4a1515; }
+        .icon { width: 64px; height: 64px; margin-bottom: 24px; color: #9ca3af; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+        </svg>
+        <h1>You're Offline</h1>
+        <p>It looks like you've lost your internet connection. Check your network settings and try refreshing the page.</p>
+        <button onclick="window.location.reload()">Try Again</button>
+    </div>
+</body>
+</html>
