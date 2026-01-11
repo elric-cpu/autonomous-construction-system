@@ -22,7 +22,7 @@ jobs:
       - name: Install Node dependencies
         run: |
           cd benson-agentic-system
-          npm ci
+         npm install
           npm test --if-present || true
 
       - name: Set up Python
