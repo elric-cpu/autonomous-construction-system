@@ -18,8 +18,8 @@ jobs:
       - name: Install dependencies and build frontend
         run: |
                cd horizons
-          npm install
-          npm run build
+                    npm install
+                    npm run build
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
