@@ -18,7 +18,7 @@ jobs:
       - name: Install dependencies and build frontend
         run: |
           cd horizons
-          npm ci
+npm install
           npm run build
 
       - name: Deploy to GitHub Pages
