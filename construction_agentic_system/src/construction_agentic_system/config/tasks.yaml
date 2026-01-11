@@ -1,0 +1,156 @@
+# Task definitions for the construction agentic system.
+#
+# Each task drives a specific part of the project evaluation process.  Tasks
+# reference input variables such as `project_name` and may include the output
+# of prior tasks via the `context` field.  The `output_file` field specifies
+# where the task's report will be written relative to the project root.
+
+preconstruction_assessment:
+  description: >
+    Review the architectural and structural drawings and requirements of
+    {{ project_name }}. Produce a detailed quantity takeoff and scope
+    narrative, identify potential hidden risks, and develop an estimate
+    including overhead, profit, contingencies and allowances. Document
+    assumptions and risk factors clearly.
+  expected_output: >
+    A detailed preconstruction report summarizing cost categories (e.g.,
+    foundation, framing, mechanical, finishes), quantity takeoffs, scope
+    narratives, allowances, contingencies and identified risks for
+    {{ project_name }}.
+  agent: estimator_preconstruction
+  output_file: output/preconstruction_report.md
+
+financial_assessment:
+  description: >
+    Using the preconstruction report, evaluate the financial feasibility of
+    {{ project_name }}. Develop a cash‑flow model, billing schedule,
+    overhead and margin forecast, and analyze profitability. Identify
+    financial risks, liquidity needs and recommendations for billing
+    cadence and risk mitigation.
+  expected_output: >
+    A financial feasibility report summarizing cash‑flow projections,
+    billing schedule, overhead allocation, margin forecast and
+    recommendations for financial risk management for {{ project_name }}.
+  agent: finance_controller
+  context:
+    - preconstruction_assessment
+  output_file: output/financial_report.md
+
+operations_capacity_assessment:
+  description: >
+    Analyze current production schedules and resource capacity to determine
+    if the company can successfully take on {{ project_name }}. Evaluate
+    subcontractor availability, sequencing, potential resource conflicts
+    and scheduling risks. Provide recommendations on capacity planning
+    and highlight any schedule, cost or quality risks.
+  expected_output: >
+    An operations capacity report outlining available capacity, potential
+    conflicts, scheduling risks and recommendations for balancing
+    resources to accommodate {{ project_name }}.
+  agent: operations_manager
+  context:
+    - preconstruction_assessment
+  output_file: output/operations_report.md
+
+marketing_assessment:
+  description: >
+    Evaluate {{ project_name }} from a marketing and brand perspective.
+    Consider target customer fit, brand positioning, potential portfolio
+    and testimonial value and expected lead generation impact. Provide
+    insights on whether the project enhances the company's brand and
+    marketing goals.
+  expected_output: >
+    A marketing assessment report discussing brand alignment, market
+    potential, portfolio value and recommendations on leveraging
+    {{ project_name }} for marketing and business development.
+  agent: marketing_business_development
+  context:
+    - preconstruction_assessment
+  output_file: output/marketing_report.md
+
+systems_assessment:
+  description: >
+    Assess the technology and systems requirements for executing
+    {{ project_name }}. Identify any gaps in current project management,
+    CRM, document management, accounting integrations or workflow
+    automations that might hinder the project. Evaluate data security,
+    backup and cybersecurity needs.
+  expected_output: >
+    A systems and technology readiness report outlining required tools,
+    integration considerations, security risks and recommendations for
+    ensuring smooth data flow and automation on {{ project_name }}.
+  agent: it_systems_manager
+  context:
+    - preconstruction_assessment
+  output_file: output/systems_report.md
+
+administrative_assessment:
+  description: >
+    Outline the administrative, compliance and HR tasks necessary to
+    support {{ project_name }}. Include documentation control,
+    subcontractor onboarding requirements, compliance paperwork,
+    invoicing support, scheduling and HR considerations. Identify
+    resource constraints or process improvements needed.
+  expected_output: >
+    An administrative readiness report summarizing documentation,
+    compliance, scheduling and HR tasks required for {{ project_name }} and
+    any identified resource gaps.
+  agent: office_manager_admin_hr
+  context:
+    - preconstruction_assessment
+  output_file: output/admin_report.md
+
+project_execution_assessment:
+  description: >
+    Develop a preliminary project execution plan for {{ project_name }}.
+    Detail the schedule with milestones and inspections, subcontractor
+    coordination, budget control measures, change order management, client
+    communication strategies and quality oversight. Identify key risks and
+    mitigation strategies.
+  expected_output: >
+    A project execution plan summarizing the schedule, subcontractor
+    management plan, budget tracking approach, change order process,
+    communication plan and quality control measures for {{ project_name }}.
+  agent: project_manager
+  context:
+    - preconstruction_assessment
+  output_file: output/project_execution_report.md
+
+field_execution_assessment:
+  description: >
+    Describe the on‑site operations and day‑to‑day management requirements
+    for {{ project_name }}. Provide a one‑ to two‑week look‑ahead
+    schedule, site logistics plans, quality control procedures, safety
+    enforcement strategies, documentation practices and coordination
+    processes with the project manager.
+  expected_output: >
+    A field execution report detailing daily operations plans, look‑ahead
+    schedules, logistics arrangements, safety protocols, quality checks
+    and documentation procedures for {{ project_name }}.
+  agent: site_superintendent
+  context:
+    - preconstruction_assessment
+  output_file: output/field_report.md
+
+executive_decision:
+  description: >
+    Review all previous reports about {{ project_name }} and make a
+    go/no‑go recommendation. Consider financial feasibility, operational
+    capacity, brand alignment, technology readiness, administrative
+    workload, project execution and field considerations. Provide a
+    rationale for the decision and any conditions or adjustments needed.
+  expected_output: >
+    A final executive recommendation summarizing all report findings and
+    recommending whether to pursue {{ project_name }}, decline it or adjust
+    scope, with justification.
+  agent: owner_president
+  context:
+    - preconstruction_assessment
+    - financial_assessment
+    - operations_capacity_assessment
+    - marketing_assessment
+    - systems_assessment
+    - administrative_assessment
+    - project_execution_assessment
+    - field_execution_assessment
+  output_file: output/final_recommendation.md
