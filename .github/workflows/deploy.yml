@@ -15,18 +15,15 @@ jobs:
         with:
           node-version: 20
 
-      - name: Unzip project archive
-        run: unzip -qq autonomous-construction-full.zip -d extracted
-
       - name: Install dependencies and build frontend
         run: |
-          cd extracted/horizons
+          cd horizons
           npm ci
           npm run build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./extracted/horizons/dist
+          publish_dir: ./horizons/dist
           publish_branch: gh-pages
+          github_token: ${{ secrets.GITHUB_TOKEN }}
