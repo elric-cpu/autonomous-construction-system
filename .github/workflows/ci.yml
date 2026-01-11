@@ -19,12 +19,9 @@ jobs:
         with:
           node-version: 20
 
-      - name: Unzip project archive
-        run: unzip -qq autonomous-construction-full.zip -d extracted
-
       - name: Install Node dependencies
         run: |
-          cd extracted/benson-agentic-system
+          cd benson-agentic-system
           npm ci
           npm test --if-present || true
 
@@ -35,6 +32,6 @@ jobs:
 
       - name: Install Python dependencies
         run: |
-          cd extracted/construction_agentic_system
+          cd construction_agentic_system
           pip install -r requirements.txt
           pytest || true
