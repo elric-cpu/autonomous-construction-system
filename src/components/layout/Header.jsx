@@ -160,6 +160,9 @@ const Header = () => {
             <Link to="/about" className="text-contractor-black hover:text-maroon transition-colors font-medium">
               About
             </Link>
+            <Link to="/agentic-operations" className="text-contractor-black hover:text-maroon transition-colors font-medium">
+              Vision
+            </Link>
             <Link to="/resources" className="text-contractor-black hover:text-maroon transition-colors font-medium">
               Resources
             </Link>
@@ -281,6 +284,9 @@ const Header = () => {
 
                 <Link to="/about" className="block py-2 text-contractor-black hover:text-maroon font-medium">
                   About
+                </Link>
+                <Link to="/agentic-operations" className="block py-2 text-contractor-black hover:text-maroon font-medium">
+                  Vision
                 </Link>
                 <Link to="/resources" className="block py-2 text-contractor-black hover:text-maroon font-medium">
                   Resources

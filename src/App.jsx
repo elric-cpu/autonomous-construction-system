@@ -32,6 +32,7 @@ const BlogPost = lazy(() => import('@/pages/BlogPost'));
 const Contact = lazy(() => import('@/pages/Contact'));
 // Job request page for the digital contracting system
 const JobRequest = lazy(() => import('@/pages/JobRequest'));
+const AgenticOperationsVision = lazy(() => import('@/pages/AgenticOperationsVision'));
 const Resources = lazy(() => import('@/pages/Resources'));
 const ResourcesHelp = lazy(() => import('@/pages/ResourcesHelp'));
 const Sitemap = lazy(() => import('@/pages/Sitemap'));
@@ -93,6 +94,7 @@ function App() {
                 <Route path="/blog/hidden-water-damage-signs" element={<HiddenWaterDamageSigns />} />
                 <Route path="/blog/:slug" element={<BlogPost />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/agentic-operations" element={<AgenticOperationsVision />} />
                 <Route path="/resources" element={<Resources />} />
                 <Route path="/resources-help" element={<ResourcesHelp />} />
                 <Route path="/sitemap" element={<Sitemap />} />
