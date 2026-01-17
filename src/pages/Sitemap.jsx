@@ -8,6 +8,7 @@ const Sitemap = () => {
   const mainRoutes = [
     { path: '/', name: 'Home' },
     { path: '/about', name: 'About Us' },
+    { path: '/agentic-operations', name: 'Vision' },
     { path: '/services', name: 'Services Overview' },
     { path: '/contact', name: 'Contact' },
     { path: '/reviews', name: 'Reviews' },
